@@ -10,13 +10,13 @@ while test $# -gt 0; do
 	-h|--help)
 		. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/logo.sh)
 		echo
-		echo -e "${C_LGn}Functionality${RES}: the script installs a Kusama node"
+		echo -e "${C_LGn}Functionality${RES}: the script performs many actions related to a Kusama node"
 		echo
 		echo -e "${C_LGn}Usage${RES}: script ${C_LGn}[OPTIONS]${RES}"
 		echo
 		echo -e "${C_LGn}Options${RES}:"
-		echo -e "  -h,  --help       show the help page"
-		echo -e "  -u,  --update     update the node"
+		echo -e "  -h,  --help    show the help page"
+		echo -e "  -u,  --update  update the node"
 		echo
 		echo -e "${C_LGn}Useful URLs${RES}:"
 		echo -e "https://github.com/SecorD0/Kusama/blob/main/multi_tool.sh — script URL"
