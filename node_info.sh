@@ -48,7 +48,7 @@ done
 
 # Functions
 printf_n(){ printf "$1\n" "${@:2}"; }
-api_request() { wget -qO-  -t 1 -T 5 --header "Content-Type: application/json" --post-data '{"id":1, "jsonrpc":"2.0", "method": "'$1'"}' "http://localhost:$2/" | jq; }
+api_request() { wget -qO- -t 1 -T 5 --header "Content-Type: application/json" --post-data '{"id":1, "jsonrpc":"2.0", "method": "'$1'"}' "http://localhost:$2/" | jq; }
 main() {
 	# Texts
 	if [ "$language" = "RU" ]; then
