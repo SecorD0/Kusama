@@ -46,6 +46,10 @@ while test $# -gt 0; do
 	esac
 done
 
+# Config
+using_docker="true"
+software_name="kusama_node"
+
 # Functions
 printf_n(){ printf "$1\n" "${@:2}"; }
 api_request() { wget -qO- -t 1 -T 5 --header "Content-Type: application/json" --post-data '{"id":1, "jsonrpc":"2.0", "method": "'$1'"}' "http://localhost:$2/" | jq; }
@@ -78,7 +82,11 @@ main() {
 
 	# Actions
 	sudo apt install jq bc -y &>/dev/null
-	local moniker=`docker logs kusama_node | grep Node | tail -1 | awk '{ printf $(NF-1) }'`
+	if [ "$using_docker" = "true" ]; then
+		local moniker=`docker logs "$software_name" | grep Node | tail -1 | awk '{ printf $(NF-1) }'`
+	else
+		local moniker=`sudo journalctl -fn 100 -u "$software_name" | grep Node | tail -1 | awk '{ printf $(NF-1) }'`
+	fi
 	local node_version=`api_request system_version 9933 | jq -r ".result"`
 	
 	local network=`api_request system_chain 9933 | jq -r ".result"`
