@@ -26,7 +26,8 @@ while test $# -gt 0; do
 		echo -e "${C_LGn}Useful URLs${RES}:"
 		echo -e "https://github.com/SecorD0/Kusama/blob/main/node_info.sh - script URL"
 		echo -e "         (you can send Pull request with new texts to add a language)"
-		echo -e "https://t.me/letskynode — node Community"
+		echo -e "https://t.me/OnePackage — noderun and tech community"
+		echo -e "https://learning.1package.io — guides and articles"
 		echo -e "https://teletype.in/@letskynode — guides and articles"
 		echo
 		return 0 2>/dev/null; exit 0
